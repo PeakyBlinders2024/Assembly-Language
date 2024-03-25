@@ -1,0 +1,45 @@
+;Write codes to evaluate the arithmetic expression “5+(6-2)”, by:
+;a.Using one register only
+;b.Using two registers only
+;Write down the source codes below.
+;Solution
+;With Two Registers:
+
+INCLUDE Irvine32.inc
+.data
+val1 dword 2h
+val2 dword 6h
+val3 dword 5h
+.code
+main PROC
+Mov Eax,0h	;Making the values of the registers Zero
+Mov Ebx,0h
+Mov Eax,Val2
+Mov Ebx,Val1
+Sub Eax,Ebx
+Add Eax,Val3
+
+call DumpRegs	;for printing the values
+exit
+main ENDP
+END main
+
+
+;With One Registers:
+
+INCLUDE Irvine32.inc
+.data
+val1 dword 2h
+val2 dword 6h
+val3 dword 5h
+.code
+main PROC
+Mov Eax,0h	;Making the values of the registers 
+Mov Eax,Val2
+Sub Eax,Val1
+Add Eax,Val3
+
+call DumpRegs	;for printing the values
+exit
+main ENDP
+END main
