@@ -1,0 +1,28 @@
+;Write code to achieve the following:
+;1.Define two 8 bit variables var1, and var2, and initialize these to 20, and 30. 
+;2.Swap the contents of var1 and var2 variables using registers.
+;3.Display the contents of the registers. (Use “call dumpregs” instruction twice, First display variable before swapping, then display variable after swapping)
+
+;Solution:
+
+INCLUDE Irvine32.inc
+.data
+    var1 byte 20h 
+    var2 byte 30h
+
+.code
+main PROC
+    mov al,var1
+    mov bl,var2
+    ; Display register values
+    CALL DumpRegs
+    xchg al,bl
+    mov var1,bl
+    mov var2,al
+    CALL DumpRegs
+
+    ; Exit the program
+    exit
+main ENDP
+
+END main
